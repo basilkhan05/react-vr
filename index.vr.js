@@ -12,13 +12,14 @@ export default class react_vr extends React.Component {
   render() {
     return (
       <View>
-        <DirectionalLight
-          intensity={0.5}
+        <PointLight
           style={{
             transform: [{
-              translateX: -1000
+              translateZ: -5
             }]
           }}
+          distance={2}
+          decay={2}
          />
         <Sphere
           lit
@@ -63,12 +64,6 @@ export default class react_vr extends React.Component {
             {
               rotateX: -90
             }]
-          }}
-        />
-        <PointLight
-          intensity={1}
-          style={{
-            transform: [{ translate: [0, 700, 700 ]}]
           }}
         />
       </View>
