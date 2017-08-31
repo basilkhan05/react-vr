@@ -4,25 +4,34 @@ import {
   asset,
   Pano,
   View,
-  Model,
+  Sphere,
+  Cylinder,
   AmbientLight, DirectionalLight
 } from 'react-vr';
+
+const Tree = props => {
+  return (
+    <View>
+      <Sphere
+        lit
+        style={{ color: 'green', transform: [{ translateY: 0.8 }] }}
+      />
+      <Cylinder
+        lit
+        style={{ color: 'brown' }}
+        radiusBottom={0.05}
+        radiusTop={0.05}
+      />
+    </View>
+    )
+}
 
 export default class react_vr extends React.Component {
   render() {
     return (
       <View>
-        <Model 
-          source={{
-            obj: asset('Astronaut.obj')
-          }}
-          style={{
-            color: 'orange',
-            transform: [{ translate: [0,-2, -5 ] }]
-          }}
-          lit
-          texture={asset('chess-world.jpg')}
-        />
+        <Tree style={{ transform: [{ translateZ: -3 }] }}/>
+        <Tree style={{ transform: [{ translateZ: -3 }, {translateX: 1.1} ] }}/>
         <DirectionalLight
           style={{ transform: [{ translateX: -1000 }]}}
         />
