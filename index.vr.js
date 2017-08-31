@@ -13,19 +13,23 @@ export default class react_vr extends React.Component {
       <View>
         <Pano 
           source={asset('chess-world.jpg')}
-          onLoad={() => { console.log('loaded') } }
-          style={{
-            transform: [{ rotateY: -90 }]
-          }}
-          // source={[
-          //   asset('right.png'),
-          //   asset('left.png'),
-          //   asset('up.png'),
-          //   asset('down.png'),
-          //   asset('back.png'),
-          //   asset('front.png')
-          //   ]}
           />
+        <Text 
+          style={{
+            transform: [{ translateZ: -1 }] ,
+            color: 'lightblue',
+            backgroundColor: '#335',
+            fontSize: 0.1,
+            fontWeight: "300",
+            width: 0.45,
+            height: 0.45,
+            textAlign: 'center',
+            textAlignVertical: 'center',
+            layoutOrigin: [0.5, 0.5]
+          }}
+        >
+        Hello Basil
+        </Text>
       </View>
     );
   }
