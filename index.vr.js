@@ -12,14 +12,14 @@ export default class react_vr extends React.Component {
   render() {
     return (
       <View>
-        <PointLight
+        <SpotLight
           style={{
             transform: [{
               translateZ: -5
             }]
           }}
           distance={2}
-          decay={2}
+          decay={1}
          />
         <Sphere
           lit
