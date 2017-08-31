@@ -4,28 +4,28 @@ import {
   asset,
   Pano,
   Text,
-  View,
+  View
 } from 'react-vr';
 
 export default class react_vr extends React.Component {
   render() {
     return (
       <View>
-        <Pano source={asset('chess-world.jpg')}/>
-        <Text
+        <Pano 
+          source={asset('chess-world.jpg')}
+          onLoad={() => { console.log('loaded') } }
           style={{
-            backgroundColor: '#777879',
-            fontSize: 0.8,
-            fontWeight: '400',
-            layoutOrigin: [0.5, 0.5],
-            paddingLeft: 0.2,
-            paddingRight: 0.2,
-            textAlign: 'center',
-            textAlignVertical: 'center',
-            transform: [{translate: [0, 0, -3]}],
-          }}>
-          hello
-        </Text>
+            transform: [{ rotateY: -90 }]
+          }}
+          // source={[
+          //   asset('right.png'),
+          //   asset('left.png'),
+          //   asset('up.png'),
+          //   asset('down.png'),
+          //   asset('back.png'),
+          //   asset('front.png')
+          //   ]}
+          />
       </View>
     );
   }
