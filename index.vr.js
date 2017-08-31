@@ -12,9 +12,13 @@ export default class react_vr extends React.Component {
   render() {
     return (
       <View>
-        <AmbientLight
-          intensity={2}
-          style={{ color: 'brown' }}
+        <DirectionalLight
+          intensity={0.5}
+          style={{
+            transform: [{
+              translateX: -1000
+            }]
+          }}
          />
         <Sphere
           lit
