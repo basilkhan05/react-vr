@@ -4,40 +4,37 @@ import {
   asset,
   Pano,
   View,
-  Sphere,
-  Cylinder,
-  AmbientLight, DirectionalLight
+  VrButton,
+  Text
 } from 'react-vr';
-
-const Tree = props => {
-  return (
-    <View>
-      <Sphere
-        lit
-        style={{ color: 'green', transform: [{ translateY: 0.8 }] }}
-      />
-      <Cylinder
-        lit
-        style={{ color: 'brown' }}
-        radiusBottom={0.05}
-        radiusTop={0.05}
-      />
-    </View>
-    )
-}
 
 export default class react_vr extends React.Component {
   render() {
     return (
       <View>
-        <Tree style={{ transform: [{ translateZ: -3 }] }}/>
-        <Tree style={{ transform: [{ translateZ: -3 }, {translateX: 1.1} ] }}/>
-        <DirectionalLight
-          style={{ transform: [{ translateX: -1000 }]}}
-        />
-        <AmbientLight
-          intensity={0.4}
-         />
+        <Pano source={asset('chess-world.jpg')} />
+        <VrButton
+          style={{
+            layoutOrigin: [0.5, 0.5],
+            transform: [{ translate: [0, 0, -1 ] }]
+          }}
+          onInput={(evt) => {
+            console.log('type', evt.nativeEvent.inputEvent.type)
+            console.log('eventType', evt.nativeEvent.inputEvent.eventType)
+          }}
+          onMove={(evt) => {
+            console.log('onMove', evt.nativeEvent)
+          }}
+          onExit={() => { console.log('onExit')}}
+          onEnter={() => { console.log('onEnter')}}
+          onClick={() => {console.log('clicked')}}
+          onLongClick={() => {console.log('clicked long')}}
+          onButtonPress={() => {console.log('pressed')}}
+          onButtonRelease={() => {console.log('released')}}
+          longClickDelayMS={4000}
+        >
+          <Text>Update</Text>
+        </VrButton>
       </View>
     );
   }
