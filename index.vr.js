@@ -4,7 +4,8 @@ import {
   asset,
   Pano,
   Text,
-  View
+  View,
+  Image
 } from 'react-vr';
 
 export default class react_vr extends React.Component {
@@ -14,22 +15,50 @@ export default class react_vr extends React.Component {
         <Pano 
           source={asset('chess-world.jpg')}
           />
-        <Text 
+        <View
           style={{
-            transform: [{ translateZ: -1 }] ,
-            color: 'lightblue',
-            backgroundColor: '#335',
-            fontSize: 0.1,
-            fontWeight: "300",
-            width: 0.45,
-            height: 0.45,
-            textAlign: 'center',
-            textAlignVertical: 'center',
-            layoutOrigin: [0.5, 0.5]
+            width: 2,
+            height: 2.4,
+            backgroundColor: 'white',
+            layoutOrigin: [0.5, 0.5],
+            transform: [{ translate: [0,0,-3]}],
+            justifyContent: 'space-between'
           }}
         >
-        Hello Basil
-        </Text>
+          <Image
+            source={asset('mountains.jpg')}
+            style={{ height: 1.2 }}
+          />
+          <Text
+            style={{
+              color: '#333',
+              fontSize: 0.16,
+              textAlign: 'center'
+            }}
+          >
+            Explore the mountains
+          </Text>
+          <View
+            style={{flexDirection: 'row'}}
+          >
+            <Image
+              source={asset('thumb1.jpg')}
+              style={{ width: 0.5, height: 0.5 }}
+            />
+            <Image
+              source={asset('thumb2.jpg')}
+              style={{ width: 0.5, height: 0.5 }}
+            />
+            <Image
+              source={asset('thumb3.jpg')}
+              style={{ width: 0.5, height: 0.5 }}
+            />
+            <Image
+              source={asset('thumb4.jpg')}
+              style={{ width: 0.5, height: 0.5 }}
+            />
+          </View>
+        </View>
       </View>
     );
   }
