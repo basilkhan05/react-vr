@@ -3,62 +3,34 @@ import {
   AppRegistry,
   asset,
   Pano,
-  Text,
+  PointLight,
   View,
-  Image
+  Sphere, 
+  Box, 
+  Cylinder,
+  Plane
 } from 'react-vr';
 
 export default class react_vr extends React.Component {
   render() {
     return (
       <View>
-        <Pano 
-          source={asset('chess-world.jpg')}
-          />
-        <View
+        <Sphere
           style={{
-            width: 2,
-            height: 2.4,
-            backgroundColor: 'white',
-            layoutOrigin: [0.5, 0.5],
-            transform: [{ translate: [0,0,-3]}],
-            justifyContent: 'space-between'
+            color: 'lightblue',
+            transform: [{ translateZ: -2 }]
           }}
-        >
-          <Image
-            source={asset('mountains.jpg')}
-            style={{ height: 1.2 }}
-          />
-          <Text
-            style={{
-              color: '#333',
-              fontSize: 0.16,
-              textAlign: 'center'
-            }}
-          >
-            Explore the mountains
-          </Text>
-          <View
-            style={{flexDirection: 'row'}}
-          >
-            <Image
-              source={asset('thumb1.jpg')}
-              style={{ width: 0.5, height: 0.5 }}
-            />
-            <Image
-              source={asset('thumb2.jpg')}
-              style={{ width: 0.5, height: 0.5 }}
-            />
-            <Image
-              source={asset('thumb3.jpg')}
-              style={{ width: 0.5, height: 0.5 }}
-            />
-            <Image
-              source={asset('thumb4.jpg')}
-              style={{ width: 0.5, height: 0.5 }}
-            />
-          </View>
-        </View>
+          lit
+          texture={asset('mountains.jpg')}
+          heightSegments={20}
+          widthSegments={20}
+        />
+        <PointLight
+          intensity={1}
+          style={{
+            transform: [{ translate: [0, 700, 700 ]}]
+          }}
+        />
       </View>
     );
   }
